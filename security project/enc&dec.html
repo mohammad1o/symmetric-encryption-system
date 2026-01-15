@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Symmetric Encryption System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="enc&dec.css">
+
+</head>
+
+<body>
+<div class="container">
+  <button id="themeToggle" class="secondary" type="button">🌙 Dark mode</button>
+
+<h1>Symmetric Encryption System</h1>
+<p class="subtitle">Mono-alphabetic Cipher + One-Time Pad (OTP)</p>
+
+<label>Upload File (.txt or .enc)</label>
+<input type="file" id="fileInput">
+<div class="buttons">
+  <button class="secondary" onclick="loadFile()">Load File</button>
+  <button class="secondary" onclick="download('ciphertext.enc')">Download .enc</button>
+  <button class="secondary" onclick="download('output.txt')">Download .txt</button>
+</div>
+
+<label>Text</label>
+<textarea id="text"></textarea>
+
+<label>Mono Key (26 unique letters)</label>
+<input id="monoKey" placeholder="QWERTYUIOPASDFGHJKLZXCVBNM">
+<button class="secondary" onclick="generateMonoKey()">Generate Mono Key</button>
+
+<label>OTP Key (Base64) (must match text length in bytes)</label>
+<input id="otpKey" placeholder="Click Generate OTP Key (Base64)">
+<button class="secondary" onclick="generateOTP()">Generate OTP Key</button>
+<div class="small">
+  OTP is generated as <b>Base64</b> (easy to copy/paste). Do not edit it, and regenerate if you change the text.
+</div>
+
+<div class="buttons">
+  <button class="encrypt" onclick="encrypt()">Encrypt</button>
+  <button class="decrypt" onclick="decrypt()">Decrypt</button>
+</div>
+
+<div id="msg"></div>
+
+<label>Output</label>
+<div class="output" id="output"></div>
+
+</div>
+
+<script src="enc$dec.js"></script>
+
+
+</body>
+</html>
